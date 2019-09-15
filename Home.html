@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="assets/styles/style.css" rel="stylesheet" type="text/css">
+    <script src="assets/scripts/main.js" type="js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+    <script>
+      var basePath = location.origin;
+      $(document).ready(function(){
+        $('#menuContent').load(basePath+"/HTML-Site/Menu.html");
+        if(localStorage != null && localStorage['selectedMenu'] != null)
+          $('#mainContent').load(basePath+'/HTML-Site/'+ localStorage   ['selectedMenu']+'.html');
+          else 
+          $('#mainContent').load(basePath+'/HTML-Site/Home.html');
+      });
+
+      function changePage(name)
+      {
+        debug;
+          localStorage['selectedMenu'] = name;
+          $('#mainContent').load(basePath+'/HTML-Site/'+ localStorage   ['selectedMenu']+'.html');
+      }
+    </script>
+  </head>
+  <body>
+      <div  id='menuContent'></div>
+      <div id='mainContent'></div>
+  </body>
+</html>
