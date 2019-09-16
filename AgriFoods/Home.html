@@ -13,19 +13,20 @@
 
     <script>
       var basePath = location.origin;
+      console.log(basePath);
       $(document).ready(function(){
-        $('#menuContent').load(basePath+"/HTML-Site/Menu.html");
+        $('#menuContent').load(basePath+"/AgriFoods/Menu.html");
         if(localStorage != null && localStorage['selectedMenu'] != null)
-          $('#mainContent').load(basePath+'/HTML-Site/'+ localStorage   ['selectedMenu']+'.html');
+          $('#mainContent').load(basePath+localStorage['selectedMenu']+'.html');
           else 
-          $('#mainContent').load(basePath+'/HTML-Site/Home.html');
+          $('#mainContent').load(basePath+'/AgriFoods/Home.html');
       });
 
       function changePage(name)
       {
         debug;
           localStorage['selectedMenu'] = name;
-          $('#mainContent').load(basePath+'/HTML-Site/'+ localStorage   ['selectedMenu']+'.html');
+          $('#mainContent').load(basePath+ localStorage['selectedMenu']+'.html');
       }
     </script>
   </head>
