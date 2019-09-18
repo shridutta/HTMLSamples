@@ -24,33 +24,44 @@
 
       function changePage(name)
       {
-        debug;
+        //debug;
           localStorage['selectedMenu'] = name;
-          $('#mainContent').load(basePath+ localStorage['selectedMenu']+'.html');
+          $('#mainContent').load(basePath+'/AgriFoods/'+ localStorage['selectedMenu']+'.html');
+          alert(basePath+'/AgriFoods/'+ localStorage['selectedMenu']+'.html');
       }
     </script>
+     
+     <style>
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color:green;
+        color: white;
+        text-align: center;
+        font-family:Arial, Helvetica, sans-serif;  
+      }
+
+      .mainContent {
+        left: 0;
+        top: 80;
+        width: 100%;
+        height: 100%;
+        background-color:beige;
+        font-family:Arial, Helvetica, sans-serif;  
+      }
+      </style>
   </head>
   <body>
       <div  id='menuContent'></div>
-      <div id='mainContent'></div>
+      <div id='mainContent' class="mainContent" >
 
+        <h1 style="padding:10% 20% 30% 30%; color:green;font-size: 80px;"> <span style="color:blue">Coming Soon... </span>Agri Foods International </h1>
+
+      </div>
       <!--Footer Section-->
-       
-      <style>
-        .footer {
-          position: fixed;
-          left: 0;
-          bottom: 0;
-          width: 100%;
-          background-color:green;
-          color: white;
-          text-align: center;
-          font-family:Arial, Helvetica, sans-serif;  
-        }
-        </style>
-         
-    
-        <div class="footer">
+      <div id="footerContent" class="footer">
     
     
     
