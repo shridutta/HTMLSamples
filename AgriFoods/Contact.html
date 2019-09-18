@@ -2,16 +2,6 @@
     @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 
-    /*
-    body {
-        font-family: "Roboto", Helvetica, Arial, sans-serif;
-        font-weight: 100;
-        font-size: 12px;
-        line-height: 30px;
-        color: #777;
-        background: #4CAF50;
-    }
-        */
      .contact_container {
         max-width: 400px;
         width: 100%;
@@ -19,18 +9,11 @@
         position: relative;
     } 
 
-
     * {
-        /* margin: 0; */
         padding: 0;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
-        /* -webkit-font-smoothing: antialiased;
-        -moz-font-smoothing: antialiased;
-        -o-font-smoothing: antialiased;
-        font-smoothing: antialiased;
-        text-rendering: optimizeLegibility; */
     }
 
     #contact input[type="text"],
@@ -40,13 +23,16 @@
     #contact textarea,
     #contact button[type="submit"] {
         font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+        border-radius: 3px;
+        height: 45px;
     }
 
     #contact {
+        border-radius: 7px;
         background: #F9F9F9;
         padding: 25px;
-        margin: 150px 0;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        margin: 50px 0;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
     }
 
     #contact h3 {
@@ -149,7 +135,7 @@
     }
 </style>
 
-<div class="contact_container">
+<div class="contact_container" style="font-family: Arial, Helvetica, sans-serif;">
     <form id="contact" action="" method="post">
         <h3>Colorlib Contact Form</h3>
         <h4>Contact us for custom quote</h4>
@@ -171,7 +157,5 @@
         <fieldset>
             <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
         </fieldset>
-        <p class="copyright">Designed by <a href="https://colorlib.com" target="_blank" title="Colorlib">Colorlib</a>
-        </p>
     </form>
 </div>
