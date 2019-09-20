@@ -1,129 +1,184 @@
-<!DOCTYPE html>
-<HTML>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
-<HEAD>
-    <style>
-        body {
-            background-color: powderblue;
-            font-family: Arial, Helvetica, sans-serif;
-            font-color: blue;
-        }
 
-        h3 {
-            color: blue;
-        }
+    .enquiry_container {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
 
-        li {
-            line-height: 30px;
-            padding-bottom: 10px;
-        }
+    * {
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
 
-        label {
-            margin: 0px;
-            padding: 0px;
-            display: block;
-            font-weight: bold;
-            width: 30%;
-            text-align: center;
-            float: left;
-        }
+    #enquiry input[type="text"],
+    #enquiry input[type="email"],
+    #enquiry input[type="tel"],
+    #enquiry input[type="date"],
+    #enquiry textarea,
+    #enquiry input[type="password"],
+    #enquiry button[type="submit"] {
+        font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+        border-radius: 3px;
+        height: 45px;
+        width:100%;
+    }
 
-        input[type=text],
-        input[type=email],
-        input[type=number],
-        input[type=date],
-        input[type=password],
-        select,
-        textarea {
-            width: 20%;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-            font-weight: bold;
+    #enquiry {
+        border-radius: 7px;
+        background: #F9F9F9;
+        padding: 25px;
+        margin: 50px 0;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+    }
 
-        }
+    #enquiry h3 {
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
 
-        input[type=submit] {
-            width: 10%;
-            padding: 4px;
-            border-radius: 4px;
-        }
+    #enquiry h4 {
+        margin: 5px 0 15px;
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+    }
 
-        input[type=reset] {
-            width: 10%;
-            padding: 4px;
-            border-radius: 4px;
-        }
+    fieldset {
+        border: medium none !important;
+        margin: 0 0 10px;
+        min-width: 100%;
+        padding: 0;
+        width: 100%;
+    }
 
-        input[type=radio] {
-            display: inline;
-        }
+    #enquiry input[type="text"],
+    #enquiry input[type="email"],
+    #enquiry input[type="tel"],
+    #enquiry input[type="date"],
+    #enquiry textarea,
+    #enquiry input[type="password"]
+     {
+        width:100%;
+        border:1px solid #ccc;
+        background:#FFF;
+        margin:0 0 5px;
+        padding:10px;
+    }
 
-        select {
-            font-weight: bold;
-        }
+    #enquiry input[type="text"]:hover,
+    #enquiry input[type="email"]:hover,
+    #enquiry input[type="tel"]:hover,
+    #enquiry input[type="date"]:hover,
+    #enquiry textarea:hover,
+    #enquiry input[type="password"]:hover
+     {
+        -webkit-transition: border-color 0.3s ease-in-out;
+        -moz-transition: border-color 0.3s ease-in-out;
+        transition: border-color 0.3s ease-in-out;
+        border: 1px solid #aaa;
+    }
 
-        ul {
-            list-style-type: none;
-        }
-    </style>
-    <TITLE>AGRIFOODS.COM</TITLE>
-</HEAD>
+    #enquiry textarea {
+        height: 100px;
+        max-width: 100%;
+        resize: none;
+    }
 
-<BODY>
-    <h3 style="font-color:blue;text-align:center">ENQUIRY FORM</h3>
-    <form>
-        <ul>
-            <li><label style="text-align:center">Full Name <span class="required">*</span></label><input type="text"
-                    name="field1" class="field-divided" placeholder="First" /> <input type="text" name="field2"
-                    class="field-divided" placeholder="Last" /></li>
-            <li>
-                <label>Email <span class="required">*</span></label>
-                <input type="email" name="field3" class="field-long" />
-            </li>
-            <li>
-                <label> Address</label>
-                <input type="text"><br>
-                <label> Country:</label>
-                <select name="countries">
-                    <option value="america">America</option>
-                    <option value="brazil">Brazil</option>
-                    <option value="canada">canada</option>
-                    <option value="france">france</option>
-                    <option value="India">India</option>
-                    <option value="Japan">Japan</option>
-                </select></li><br>
-            <li>
-                <label>Gender:</label>
-                <div style="display: flow-root">
-                    <input type="radio" name="gender" value="male"> Male <br>
-                    <input type="radio" name="gender" value="female"> Female <br>
-                    <input type="radio" name="gender" value="others"> Others <br>
-                </div>
+    #enquiry button[type="submit"] {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #4CAF50;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 15px;
+    }
 
-            </li>
+    #enquiry button[type="submit"]:hover {
+        background: #43A047;
+        -webkit-transition: background 0.3s ease-in-out;
+        -moz-transition: background 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
+    }
 
-            <li>
-                <label>Phone no.</label> <input type="number" name="phone no.">
-            </li>
+    #enquiry button[type="submit"]:active {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
 
-            <li>
-                <label>Date of Birth</label><input type="date" name="Dob"> <br>
-            </li>
+    .copyright {
+        text-align: center;
+    }
 
-            <li>
-                <label>Password:</label><input type="password" name="password"> <br>
-            </li>
+    #enquiry input:focus,
+    #enquiry textarea:focus {
+        outline: 0;
+        border: 1px solid #aaa;
+    }
 
-            <li>
-                <div style="padding-left:30%;">
-                    <input type="submit" value="submit">
-                    <input type="reset" value="reset">
-                </div>
-            </li>
-        </ul>
+    ::-webkit-input-placeholder {
+        color: #888;
+    }
+
+    :-moz-placeholder {
+        color: #888;
+    }
+
+    ::-moz-placeholder {
+        color: #888;
+    }
+
+    :-ms-input-placeholder {
+        color: #888;
+    }
+</style>
+
+<div class="enquiry_container" style="font-family: Arial, Helvetica, sans-serif;">
+    <form id="enquiry" action="" method="post">
+        <h3>Enquiry Form</h3>
+        <h4>Fill all the below details</h4>
+        <fieldset>
+            <input placeholder="Full Name" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Email Address" type="email" tabindex="2" required>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Phone Number " type="tel" tabindex="3" required>
+        </fieldset>
+        <fieldset>
+            <label>Select your country</label>
+            <select name="countries">
+                <option value="america">America</option>
+                <option value="brazil">Brazil</option>
+                <option value="canada">canada</option>
+                <option value="france">france</option>
+                <option value="India">India</option>
+                <option value="Japan">Japan</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <label>Enter your DOB</label>
+            <input placeholder="Date of Birth" type="date" tabindex="4" required>
+        </fieldset>
+        <fieldset>
+            <textarea placeholder="enter your address here" tabindex="5" required></textarea>
+        </fieldset>
+
+        <fieldset>
+            <input placeholder="enter your Password" type="password" tabindex="8" required>
+        </fieldset>
+        <fieldset>
+                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+            </fieldset>
     </form>
-</BODY>
-
-</HTML>
+</div>

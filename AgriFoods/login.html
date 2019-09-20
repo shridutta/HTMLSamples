@@ -1,93 +1,152 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <STYLE>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        input[type=text],
-        input[type=password] {
-            /* width: 20%; */
-            padding: 15PX;
-            margin: 5px;
-            width: 184px;
-
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15PX;
-            margin: 8px;
-            border: none;
-            width: 215px;
-        }
-
-        .container {
-            padding: 15px;
-            width: 215px;
-        }
-
-        .cancelbtn {
-            width: 138PX;
-            padding: 15px;
-            background-color: #f44336;
-        }
-
-        .forgotpsw {
-
-            width: 138PX;
-            padding: 15px;
-            background-color: #f44336;
-
-        }
-
-        .overlay {
-            position: fixed;
-            z-index: 2;
-            display: none;
-            width: 300px;
-            height: 60%;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: white;
-            cursor: pointer;
-        }
-        
-    </style>
-</head>
-
-<body>
-    <!-- <form action="action_page.php" method="post"> -->
-    <!-- <div style="padding:20px">
-                    <h2>Click the button to Login</h2>
-                    <button onclick="on()">Login</button>
-                  </div>
-     -->
-    <div class="container overlay" id="login">
-        <H2 STYLE="PADDING-LEFT:45PX;color:silver">LOGIN FORM</H2>
-
-        <input type="text" placeholder="Enter Username" name="uname" required><br>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
 
 
-        <input type="password" placeholder="Enter Password" name="psw" required><br>
+     .login_container {
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    } 
 
-        <button type="submit">Login</button><br>
+    * {
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+
+    #login input[type="text"],
+    #login input[type="Password"],
+
+    #login button[type="button"] {
+        font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+        border-radius: 3px;
+        height: 45px;
+        width:100%;
+    }
+
+    #login {
+        border-radius: 7px;
+        background: #F9F9F9;
+        padding: 25px;
+        margin: 50px 0;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    #login h3 {
+        display: block;
+        font-size: 30px;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+
+    #login h4 {
+        margin: 5px 0 15px;
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    fieldset {
+        border: medium none !important;
+        margin: 0 0 10px;
+        min-width: 100%;
+        padding: 0;
+        width: 100%;
+    }
 
 
-        <button type="button" class="cancelbtn" style="color:white;width: 215px">Cancel</button><br>
-        <button type="button" class="forgotpsw" style="color:white;width:215px">Forgot password</button><br>
-        <label style="color:black">
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
+   
 
-    </div>
+    
+    #login button[type="button"] {
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background: #4CAF50;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 15px;
+    }
 
-    <!-- </form> -->
-</body>
+    #login button[type="button"]:hover {
+        background:forestgreen;
+        -webkit-transition: background 0.3s ease-in-out;
+        -moz-transition: background 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
+    }
 
-</html>
+    #login button[type="button"]:active {
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    .copyright {
+        text-align: center;
+    }
+
+
+    #login button[class="cancelbtn"]{
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background:red;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 15px;
+    }
+    #login button[class="cancelbtn"]:hover {
+        background:darkred;
+        -webkit-transition: background 0.3s ease-in-out;
+        -moz-transition: background 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    #login button[class="forgotpsw"]{
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        background:dodgerblue;
+        color: #FFF;
+        margin: 0 0 5px;
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    #login button[class="forgotpsw"]:hover {
+        background:mediumblue;
+        -webkit-transition: background 0.3s ease-in-out;
+        -moz-transition: background 0.3s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
+    }
+</style>
+
+<div class="login_container" style="font-family: Arial, Helvetica, sans-serif;">
+    <form id="login" action="" method="post">
+        <h3>Login</h3>
+        <h4>Login to enjoy the service</h4>
+        <fieldset>
+            <input placeholder="Username" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+            <input placeholder="Password" type="password" tabindex="2" required>
+        </fieldset>
+       
+        <fieldset>
+            <label style="color:black">
+                <input type="checkbox"name="remember"> Remember me
+            </label>
+        </fieldset>
+        <fieldset>
+            <button name="Login" type="Button" id="login_content">Login</button>
+        </fieldset><br>
+       <fieldset>
+        <button type="button" class="cancelbtn" >Cancel</button>
+        </fieldset><br>
+        <fieldset>
+        <button type="button" class="forgotpsw">Forgot password</button>
+        </fieldset><br>
+    </form>
+</div>
