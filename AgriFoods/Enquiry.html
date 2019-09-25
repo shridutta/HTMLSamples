@@ -122,23 +122,8 @@
     #enquiry textarea:focus {
         outline: 0;
         border: 1px solid #aaa;
-    }
-
-    ::-webkit-input-placeholder {
-        color: #888;
-    }
-
-    :-moz-placeholder {
-        color: #888;
-    }
-
-    ::-moz-placeholder {
-        color: #888;
-    }
-
-    :-ms-input-placeholder {
-        color: #888;
-    }
+    }  
+    
 </style>
 
 <div class="enquiry_container" style="font-family: Arial, Helvetica, sans-serif;">
@@ -155,19 +140,29 @@
             <input placeholder="Phone Number " type="tel" tabindex="3" required>
         </fieldset>
         <fieldset>
-            <label>Select your country</label>
-            <select name="countries">
-                <option value="america">America</option>
-                <option value="brazil">Brazil</option>
-                <option value="canada">canada</option>
-                <option value="france">france</option>
-                <option value="India">India</option>
-                <option value="Japan">Japan</option>
+            
+            <select name="countries" style="width:350px;padding:12px;color:darkblue;background-color:lavender;font-family: Arial, Helvetica, sans-serif">
+                <option value="0">Select country</option>
+                <option value="1">Brazil</option>
+                <option value="2">canada</option>
+                <option value="3">france</option>
+                <option value="4">India</option>
+                <option value="5">Japan</option>
+                <option value="6">America</option>
             </select>
+        </fieldset>
+        <fieldset>
+            
+            <div style="display:flex;font-family: Arial, Helvetica, sans-serif">
+            
+                <input type="radio" name="gender" value="male"> Male 
+                <input type="radio" name="gender" value="female"> Female 
+                <input type="radio" name="gender" value="others"> Others 
+            </div>
+
         </fieldset>
 
         <fieldset>
-            <label>Enter your DOB</label>
             <input placeholder="Date of Birth" type="date" tabindex="4" required>
         </fieldset>
         <fieldset>
