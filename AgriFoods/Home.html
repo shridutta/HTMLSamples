@@ -26,6 +26,8 @@
 
     function changePage(name) {
       //debug;
+      //TODO: Add a code to highlight new menu and remove the old menu highlight
+      HighlightMenu(name);
       localStorage['selectedMenu'] = name;
       $('#mainContent').load(basePath + '/AgriFoods/' + localStorage['selectedMenu'] + '.html');
       //alert(basePath+'/AgriFoods/'+ localStorage['selectedMenu']+'.html');
@@ -35,6 +37,12 @@
       }
     }
 
+    function HighlightMenu(name)
+    {
+      //Loop onto menu items and remove style ='active' from all elements
+      // Add active style to menu where id = name
+    }
+    
     function on() {
         $('#loginContent').css('style.display','block');
         console.log('hi');
