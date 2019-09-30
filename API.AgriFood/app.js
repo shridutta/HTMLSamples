@@ -1,11 +1,12 @@
 
-var express = require('express');
-var app = express();
-var reload = require('reload')
+const express = require('express');
+const app = express();
+const port = 9000;
 var router = express.Router()
 
+
 app.get('/', function(req, res){
-   res.send("Hello World! ");
+   res.send("Hello Worlds! ");
 });
 
-app.listen(9000);
+app.listen(port, () => console.log('API Server is running on localhost: ${this.port}'));
