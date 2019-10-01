@@ -125,13 +125,14 @@
 
 <div class="login_container" style="font-family: Arial, Helvetica, sans-serif;">
     <form id="login" action="" method="post">
+        <h2 id="response"></h2>
         <h3>Login</h3>
         <h4>Login to enjoy the service</h4>
         <fieldset>
-            <input placeholder="Username" type="text" tabindex="1" required autofocus>
+            <input placeholder="Username" id="UserName" type="text" tabindex="1" required autofocus value="ARPIT">
         </fieldset>
         <fieldset>
-            <input placeholder="Password" type="password" tabindex="2" required>
+            <input placeholder="Password" id="Password"  type="password" tabindex="2" required value="Welcome123">
         </fieldset>
        
         <fieldset>
@@ -140,10 +141,10 @@
             </label>
         </fieldset>
         <fieldset>
-            <button name="Login" type="Button" id="login_content">Login</button>
+            <button name="Login" type="Button" id="login_content" onclick="validateUser()">Login</button>
         </fieldset><br>
        <fieldset>
-        <button type="button" class="cancelbtn" >Cancel</button>
+        <button type="button" class="cancelbtn" onclick="window.location.href = 'Home.html'" >Cancel</button>
         </fieldset><br>
         <fieldset>
         <button type="button" class="forgotpsw">Forgot password</button>

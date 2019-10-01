@@ -2,18 +2,21 @@
 const express = require('express');
 const app = express();
 const port = 9000;
+var cors = require('cors');
 var router = express.Router();
 var bodyParser  = require('body-parser');
-app.get('/login', function(req, res){
-   res.send("Please provide username and password! ");
-});
 
 app.get('/', function(req, res){
    res.send("Welcome to AgriFoods ");
 });
 
-app.get('/login/:id/:pwd', function(req, res){
-   res.send("Welcome "+req.params.id+" Your password is"
+app.get('/login', function(req, res){
+   res.send("Please provide username and password! ");
+});
+
+
+app.get('/login/:userName/:pwd', function(req, res){
+   res.send("Welcome "+req.params.userName+" Your password is "
    +req.params.pwd
    );
 });

@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>Home Page</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
   <link href="assets/styles/style.css" rel="stylesheet" type="text/css">
   <script src="assets/scripts/main.js" type="js"></script>
-  <script 
-       src="https://code.jquery.com/jquery-3.4.1.min.js"
-       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
-       crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
   <script>
     var basePath = location.origin;
@@ -31,26 +30,43 @@
       localStorage['selectedMenu'] = name;
       $('#mainContent').load(basePath + '/AgriFoods/' + localStorage['selectedMenu'] + '.html');
       //alert(basePath+'/AgriFoods/'+ localStorage['selectedMenu']+'.html');
-      if(name=='Login')
-      {
+      if (name == 'Login') {
         on();
       }
     }
 
-    function HighlightMenu(name)
-    {
+    function HighlightMenu(name) {
       //Loop onto menu items and remove style ='active' from all elements
       // Add active style to menu where id = name
     }
-    
+
     function on() {
-        $('#loginContent').css('style.display','block');
-        console.log('hi');
+      $('#loginContent').css('style.display', 'block');
+      console.log('hi');
     }
 
     function off() {
-        document.getElementById("loginContent").style.display = "none";
+      document.getElementById("loginContent").style.display = "none";
     }
+
+    function validateUser() {
+      $.ajax({
+        // url: "http://localhost:9000/login/"+$('#UserName).value+"/"}).then(function (data) {
+        // $('#response').value = data.content;
+      });
+        
+      $.ajax({
+        url: "http://localhost:9000/login/"+ $('#UserName').val() 
+        +"/" + $('#Password').val(),
+        crossDomain: true
+      
+      }).then(function(data) {
+         console.log(data); 
+         $('#response').empty();
+         $('#response').append(data);
+      });
+    }
+
 
   </script>
   <style>
@@ -89,4 +105,5 @@
     <footer id="footerContent"></footer>
   </div>
 </body>
+
 </html>
