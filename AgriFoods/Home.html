@@ -51,11 +51,6 @@
 
     function validateUser() {
       $.ajax({
-        // url: "http://localhost:9000/login/"+$('#UserName).value+"/"}).then(function (data) {
-        // $('#response').value = data.content;
-      });
-        
-      $.ajax({
         url: "http://localhost:9000/login/"+ $('#UserName').val() 
         +"/" + $('#Password').val(),
         crossDomain: true
