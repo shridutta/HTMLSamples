@@ -6,7 +6,10 @@ var router = express.Router()
 
 
 app.get('/', function(req, res){
-   res.send("Hello Worlds! ");
+   res.send("Hello ! ");
 });
 
 app.listen(port, () => console.log('API Server is running on localhost: ${this.port}'));
+app.get('/login', function(req, res){
+   res.send("Hello from login! ");
+});
