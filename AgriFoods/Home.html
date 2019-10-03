@@ -51,7 +51,20 @@
     function off() {
         document.getElementById("loginContent").style.display = "none";
     }
-
+    function validateUser() {
+      
+        
+      $.ajax({
+        url: "http://localhost:9000/login/"+ $('#UserName').val() 
+        +"/" + $('#Password').val(),
+        crossDomain: true
+      
+      }).then(function(data) {
+         console.log(data); 
+         $('#response').empty();
+         $('#response').append(data);
+      });
+    }
   </script>
   <style>
     .footer {
