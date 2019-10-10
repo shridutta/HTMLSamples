@@ -1,31 +1,31 @@
 <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
-
-
+  
+  
      .login_container {
         max-width: 400px;
         width: 100%;
         margin: 0 auto;
         position: relative;
     } 
-
+  
     * {
         padding: 0;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
     }
-
+  
     #login input[type="text"],
     #login input[type="Password"],
-
+  
     #login button[type="button"] {
         font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
         border-radius: 3px;
         height: 45px;
         width:100%;
     }
-
+  
     #login {
         border-radius: 7px;
         background: #F9F9F9;
@@ -33,21 +33,21 @@
         margin: 50px 0;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
     }
-
+  
     #login h3 {
         display: block;
         font-size: 30px;
         font-weight: 300;
         margin-bottom: 10px;
     }
-
+  
     #login h4 {
         margin: 5px 0 15px;
         display: block;
         font-size: 13px;
         font-weight: 400;
     }
-
+  
     fieldset {
         border: medium none !important;
         margin: 0 0 10px;
@@ -55,10 +55,10 @@
         padding: 0;
         width: 100%;
     }
-
-
+  
+  
    
-
+  
     
     #login button[type="button"] {
         cursor: pointer;
@@ -70,23 +70,23 @@
         padding: 10px;
         font-size: 15px;
     }
-
+  
     #login button[type="button"]:hover {
         background:forestgreen;
         -webkit-transition: background 0.3s ease-in-out;
         -moz-transition: background 0.3s ease-in-out;
         transition: background-color 0.3s ease-in-out;
     }
-
+  
     #login button[type="button"]:active {
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
     }
-
+  
     .copyright {
         text-align: center;
     }
-
-
+  
+  
     #login button[class="cancelbtn"]{
         cursor: pointer;
         width: 100%;
@@ -103,7 +103,7 @@
         -moz-transition: background 0.3s ease-in-out;
         transition: background-color 0.3s ease-in-out;
     }
-
+  
     #login button[class="forgotpsw"]{
         cursor: pointer;
         width: 100%;
@@ -114,24 +114,25 @@
         padding: 10px;
         font-size: 15px;
     }
-
+  
     #login button[class="forgotpsw"]:hover {
         background:mediumblue;
         -webkit-transition: background 0.3s ease-in-out;
         -moz-transition: background 0.3s ease-in-out;
         transition: background-color 0.3s ease-in-out;
     }
-</style>
-
-<div class="login_container" style="font-family: Arial, Helvetica, sans-serif;">
+  </style>
+  
+  <div class="login_container" style="font-family: Arial, Helvetica, sans-serif;">
     <form id="login" action="" method="post">
+        <h2 id="response"></h2>
         <h3>Login</h3>
         <h4>Login to enjoy the service</h4>
         <fieldset>
-            <input placeholder="Username" type="text" tabindex="1" required autofocus>
+            <input placeholder="Username" id="UserName" type="text" tabindex="1" required autofocus value="">
         </fieldset>
         <fieldset>
-            <input placeholder="Password" type="password" tabindex="2" required>
+            <input placeholder="Password" id="Password"  type="password" tabindex="2" required value="">
         </fieldset>
        
         <fieldset>
@@ -140,13 +141,13 @@
             </label>
         </fieldset>
         <fieldset>
-            <button name="Login" type="Button" id="login_content">Login</button>
+            <button name="Login" type="Button" id="login_content" onclick="validateUser()">Login</button>
         </fieldset><br>
        <fieldset>
-        <button type="button" class="cancelbtn" >Cancel</button>
+        <button type="button" class="cancelbtn" onclick="window.location.href = 'Home.html'" >Cancel</button>
         </fieldset><br>
         <fieldset>
         <button type="button" class="forgotpsw">Forgot password</button>
         </fieldset><br>
     </form>
-</div>
+  </div>＀
