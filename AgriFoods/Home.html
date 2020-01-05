@@ -1,105 +1,105 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>Home Page</title>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
-  <link href="assets/styles/style.css" rel="stylesheet" type="text/css">
-  <script src="assets/scripts/main.js" type="js"></script>
-  <script 
-       src="https://code.jquery.com/jquery-3.4.1.min.js"
-       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" 
-       crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="assets/styles/style.css" rel="stylesheet" type="text/css">
+    <script src="assets/scripts/main.js" type="js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-  <script>
-    var basePath = location.origin;
-    console.log(basePath);
-    $(document).ready(function () {
-      $('#menuContent').load(basePath + "/AgriFoods/Menu.html");
-      if (localStorage != null && localStorage['selectedMenu'] != null)
-        $('#mainContent').load(basePath + localStorage['selectedMenu'] + '.html');
-      else {
-        $('#mainContent').load(basePath + '/AgriFoods/Home.html');
-        $('#footerContent').load(basePath + '/AgriFoods/Footer.html');
-      }
-    });
 
-    function changePage(name) {
-      //debug;
-      //TODO: Add a code to highlight new menu and remove the old menu highlight
-      HighlightMenu(name);
-      localStorage['selectedMenu'] = name;
-      $('#mainContent').load(basePath + '/AgriFoods/' + localStorage['selectedMenu'] + '.html');
-      //alert(basePath+'/AgriFoods/'+ localStorage['selectedMenu']+'.html');
-      if(name=='Login')
-      {
-        on();
-      }
-    }
 
-    function HighlightMenu(name)
-    {
-      //Loop onto menu items and remove style ='active' from all elements
-      // Add active style to menu where id = name
-    }
-    
-    function on() {
-        $('#loginContent').css('style.display','block');
-        console.log('hi');
-    }
 
-    function off() {
-        document.getElementById("loginContent").style.display = "none";
-    }
-    function validateUser() {
-      
+    <script>
+        var basePath = location.origin;
+        console.log(basePath);
+        $(document).ready(function() {
+            $('#menuContent').load(basePath + "/AgriFoods/Menu.html");
+            if (localStorage != null && localStorage['selectedMenu'] != null)
+                $('#mainContent').load(basePath + localStorage['selectedMenu'] + '.html');
+            else {
+                $('#mainContent').load(basePath + '/AgriFoods/Home.html');
+                $('#footerContent').load(basePath + '/AgriFoods/Footer.html');
+            }
+        });
+
+        function changePage(name) {
+            //debug;
+            //TODO: Add a code to highlight new menu and remove the old menu highlight
+            HighlightMenu(name);
+            localStorage['selectedMenu'] = name;
+            $('#mainContent').load(basePath + '/AgriFoods/' + localStorage['selectedMenu'] + '.html');
+            //alert(basePath+'/AgriFoods/'+ localStorage['selectedMenu']+'.html');
+            if (name == 'Login') {
+                on();
+            }
+        }
+
+        function HighlightMenu(name) {
+            //Loop onto menu items and remove style ='active' from all elements
+            // Add active style to menu where id = name
+        }
+
+        function on() {
+            $('#loginContent').css('style.display', 'block');
+            console.log('hi');
+        }
+
+        function off() {
+            document.getElementById("loginContent").style.display = "none";
+        }
+
+        function validateUser() {
+
+
+            $.ajax({
+                url: "http://localhost:9000/login/" + $('#UserName').val() +
+                    "/" + $('#Password').val(),
+                crossDomain: true
+
+            }).then(function(data) {
+                console.log(data);
+                $('#response').empty();
+                $('#response').append(data);
+            });
+        }
+    </script>
+    <style>
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: green;
+            color: white;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+        }
         
-      $.ajax({
-        url: "http://localhost:9000/login/"+ $('#UserName').val() 
-        +"/" + $('#Password').val(),
-        crossDomain: true
-      
-      }).then(function(data) {
-         console.log(data); 
-         $('#response').empty();
-         $('#response').append(data);
-      });
-    }
-  </script>
-  <style>
-    .footer {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      width: 100%;
-      background-color: green;
-      color: white;
-      text-align: center;
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .mainContent {
-      padding: 20px 0px 0px 0px;
-      left: 0;
-      top: 80;
-      width: 100%;
-      /* height: 100%; 
+        .mainContent {
+            padding: 20px 0px 0px 0px;
+            left: 0;
+            top: 80;
+            width: 100%;
+            /* height: 100%; 
         background-color:beige; */
-    }
-  </style>
+        }
+    </style>
 </head>
 
 <body style="height: 100%; margin: 0px;">
-  <div id='menuContent'></div>
-  <div id='mainContent' class="mainContent">
+    <div id='menuContent'></div>
+    <div id='mainContent' class="mainContent">
 
-    <h1 style="padding:10% 20% 30% 30%; font-family:Arial, Helvetica, sans-serif;color:green;font-size: 80px;"> <span
-        style="color:blue;">Coming Soon... </span>Agri Foods International </h1>
+        <h1 style="padding:10% 20% 30% 30%; font-family:Arial, Helvetica, sans-serif;color:green;font-size: 80px;"> <span style="color:blue;">Coming Soon... </span>Agri Foods International </h1>
 
-  </div>
-  <!--Footer Section-->
-  <div class="footer">
-    <footer id="footerContent"></footer>
-  </div>
+    </div>
+    <!--Footer Section-->
+    <div class="footer">
+        <footer id="footerContent"></footer>
+    </div>
 </body>
+
 </html>

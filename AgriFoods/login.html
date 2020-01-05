@@ -1,31 +1,28 @@
 <style>
     @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
-  
-  
-     .login_container {
+    .login_container {
         max-width: 400px;
         width: 100%;
         margin: 0 auto;
         position: relative;
-    } 
-  
+    }
+    
     * {
         padding: 0;
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
     }
-  
+    
     #login input[type="text"],
     #login input[type="Password"],
-  
     #login button[type="button"] {
         font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
         border-radius: 3px;
         height: 45px;
-        width:100%;
+        width: 100%;
     }
-  
+    
     #login {
         border-radius: 7px;
         background: #F9F9F9;
@@ -33,21 +30,21 @@
         margin: 50px 0;
         box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.5);
     }
-  
+    
     #login h3 {
         display: block;
         font-size: 30px;
         font-weight: 300;
         margin-bottom: 10px;
     }
-  
+    
     #login h4 {
         margin: 5px 0 15px;
         display: block;
         font-size: 13px;
         font-weight: 400;
     }
-  
+    
     fieldset {
         border: medium none !important;
         margin: 0 0 10px;
@@ -55,10 +52,6 @@
         padding: 0;
         width: 100%;
     }
-  
-  
-   
-  
     
     #login button[type="button"] {
         cursor: pointer;
@@ -70,71 +63,130 @@
         padding: 10px;
         font-size: 15px;
     }
-  
+    
     #login button[type="button"]:hover {
-        background:forestgreen;
+        background: forestgreen;
         -webkit-transition: background 0.3s ease-in-out;
         -moz-transition: background 0.3s ease-in-out;
         transition: background-color 0.3s ease-in-out;
     }
-  
+    
     #login button[type="button"]:active {
         box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
     }
-  
+    
     .copyright {
         text-align: center;
     }
-  
-  
-    #login button[class="cancelbtn"]{
+    
+    #login button[class="cancelbtn"] {
         cursor: pointer;
         width: 100%;
         border: none;
-        background:red;
+        background: red;
         color: #FFF;
         margin: 0 0 5px;
         padding: 10px;
         font-size: 15px;
     }
+    
     #login button[class="cancelbtn"]:hover {
-        background:darkred;
+        background: darkred;
         -webkit-transition: background 0.3s ease-in-out;
         -moz-transition: background 0.3s ease-in-out;
         transition: background-color 0.3s ease-in-out;
     }
-  
-    #login button[class="forgotpsw"]{
+    
+    #login button[class="forgotpsw"] {
         cursor: pointer;
         width: 100%;
         border: none;
-        background:dodgerblue;
+        background: dodgerblue;
         color: #FFF;
         margin: 0 0 5px;
         padding: 10px;
         font-size: 15px;
     }
-  
+    
     #login button[class="forgotpsw"]:hover {
-        background:mediumblue;
+        background: mediumblue;
         -webkit-transition: background 0.3s ease-in-out;
         -moz-transition: background 0.3s ease-in-out;
         transition: background-color 0.3s ease-in-out;
     }
-  </style>
-  
-  <div class="login_container" style="font-family: Arial, Helvetica, sans-serif;">
+    /*#fb_login button {
+        background: blue;
+    }*/
+</style>
+
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '471433140414760',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v5.0'
+        });
+    };
+
+    facebookLogin = () => {
+        window.FB.login(
+            function(resp) {
+                this.statusChangeCallback(resp);
+            }.bind(this), {
+                scope: 'email,user_work_history,user_education_history,user_location,public_profile'
+            });
+    }
+
+    function statusChangeCallback(response) {
+        console.log('statusChangeCallback');
+        console.log(response);
+        if (response.status === 'connected') {
+            alert("Connected to facebook. Retriving user from fb");
+            // Logged into your app and Facebook.
+            this.fetchDataFacebook();
+        } else if (response.status === 'not_authorized') {
+            console.log('Import error', 'Authorize app to import data', 'error')
+        } else {
+            console.log('Import error', 'Error occured while importing data', 'error')
+        }
+    }
+
+    fetchDataFacebook = () => {
+        console.log('Welcome!  Fetching your information.... ');
+
+
+        window.FB.api('/me', function(user) {
+            console.log(user);
+            console.log('Successful login from facebook : ' + user.name);
+            alert('Successful login for: ' + user.name);
+        });
+    }
+
+
+
+
+    export default FacebookLogin;
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+<div class="login_container" style="font-family: Arial, Helvetica, sans-serif;">
     <form id="login" action="" method="post">
         <h2 id="response"></h2>
+
+        <fieldset>
+            <button name='fb' type="button" id="fb_login" onclick="facebookLogin()">Login using facebook</button>
+        </fieldset>
+
         <h3>Login</h3>
         <h4>Login to enjoy the service</h4>
         <fieldset>
             <input placeholder="Username" id="UserName" type="text" tabindex="1" required autofocus value="">
         </fieldset>
         <fieldset>
-            <input placeholder="Password" id="Password"  type="password" tabindex="2" required value="">
+            <input placeholder="Password" id="Password" type="password" tabindex="2" required value="">
         </fieldset>
-       
+
         <fieldset>
             <label style="color:black">
                 <input type="checkbox"name="remember"> Remember me
@@ -143,11 +195,11 @@
         <fieldset>
             <button name="Login" type="Button" id="login_content" onclick="validateUser()">Login</button>
         </fieldset><br>
-       <fieldset>
-        <button type="button" class="cancelbtn" onclick="window.location.href = 'Home.html'" >Cancel</button>
+        <fieldset>
+            <button type="button" class="cancelbtn" onclick="window.location.href = 'Home.html'">Cancel</button>
         </fieldset><br>
         <fieldset>
-        <button type="button" class="forgotpsw">Forgot password</button>
+            <button type="button" class="forgotpsw">Forgot password</button>
         </fieldset><br>
     </form>
-  </div>＀
+</div>
