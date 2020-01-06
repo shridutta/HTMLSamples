@@ -134,7 +134,8 @@
             function(resp) {
                 this.statusChangeCallback(resp);
             }.bind(this), {
-                scope: 'email,user_work_history,user_education_history,user_location,public_profile'
+                //scope: 'email,user_work_history,user_education_history,user_location,public_profile'
+                scope: 'email'
             });
     }
 
@@ -162,11 +163,6 @@
             alert('Successful login for: ' + user.name);
         });
     }
-
-
-
-
-    export default FacebookLogin;
 </script>
 <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 
